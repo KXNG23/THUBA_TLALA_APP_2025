@@ -1,6 +1,7 @@
 import { Button } from "@/components/ui/button"
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card"
 import { Badge } from "@/components/ui/badge"
+import { ResponsiveHeader } from "@/components/responsive-header"
 import { WhatsAppChatButton } from "@/components/whatsapp-chat-button"
 import Image from "next/image"
 import Link from "next/link"
@@ -147,67 +148,48 @@ export default function StockvelPage() {
 
   return (
     <div className="min-h-screen bg-gray-50">
-      {/* Header */}
-      <header className="bg-white shadow-sm">
-        <div className="container mx-auto px-4 py-4">
-          <div className="flex items-center justify-between">
-            <div className="flex items-center space-x-3">
-              <Image src="/logo.png" alt="Thuba Tlala Logo" width={50} height={50} />
-              <div>
-                <h1 className="text-xl font-bold text-green-800">THUBA TLALA</h1>
-              </div>
-            </div>
-            <nav className="hidden md:flex space-x-6">
-              <Link href="/" className="text-gray-600 hover:text-green-600">
-                Home
-              </Link>
-              <Link href="/about" className="text-gray-600 hover:text-green-600">
-                About Us
-              </Link>
-              <Link href="/stockvel" className="text-green-600 font-medium">
-                Stockvel
-              </Link>
-              <Link href="/contact" className="text-gray-600 hover:text-green-600">
-                Contact
-              </Link>
-            </nav>
-          </div>
-        </div>
-      </header>
+      {/* Responsive Header */}
+      <ResponsiveHeader currentPage="stockvel" />
 
       {/* Hero Section */}
-      <section className="py-16 bg-gradient-to-r from-green-600 to-green-700 text-white">
+      <section className="py-12 md:py-16 bg-gradient-to-r from-green-600 to-green-700 text-white">
         <div className="container mx-auto px-4 text-center">
-          <h1 className="text-4xl lg:text-5xl font-bold mb-6">Stockvel Packages for MBUMBA</h1>
-          <p className="text-xl text-green-100 mb-8 max-w-3xl mx-auto">
+          <h1 className="text-3xl md:text-4xl lg:text-5xl font-bold mb-6">Stockvel Packages for MBUMBA</h1>
+          <p className="text-lg md:text-xl text-green-100 mb-8 max-w-3xl mx-auto">
             Choose the perfect package for your family or community. Save money, eat better, and support local farmers
             through our innovative Stockvel model.
           </p>
           <div className="flex flex-wrap justify-center gap-4">
-            <Badge className="bg-orange-500 text-white px-6 py-3 text-lg">Save up to 40%</Badge>
-            <Badge className="bg-white text-green-700 px-6 py-3 text-lg">Fresh Weekly Delivery</Badge>
-            <Badge className="bg-green-500 text-white px-6 py-3 text-lg">Local Farmers</Badge>
+            <Badge className="bg-orange-500 text-white px-4 md:px-6 py-2 md:py-3 text-sm md:text-lg">
+              Save up to 40%
+            </Badge>
+            <Badge className="bg-white text-green-700 px-4 md:px-6 py-2 md:py-3 text-sm md:text-lg">
+              Fresh Weekly Delivery
+            </Badge>
+            <Badge className="bg-green-500 text-white px-4 md:px-6 py-2 md:py-3 text-sm md:text-lg">
+              Local Farmers
+            </Badge>
           </div>
         </div>
       </section>
 
       {/* Benefits Section */}
-      <section className="py-16 bg-white">
+      <section className="py-12 md:py-16 bg-white">
         <div className="container mx-auto px-4">
-          <div className="text-center mb-12">
-            <h2 className="text-3xl font-bold text-green-800 mb-4">Why Choose Our Stockvel Model?</h2>
+          <div className="text-center mb-8 md:mb-12">
+            <h2 className="text-2xl md:text-3xl font-bold text-green-800 mb-4">Why Choose Our Stockvel Model?</h2>
             <p className="text-gray-600 max-w-2xl mx-auto">
               Experience the power of community buying and transform how your family accesses fresh, quality food.
             </p>
           </div>
 
-          <div className="grid md:grid-cols-3 gap-8">
+          <div className="grid md:grid-cols-3 gap-6 md:gap-8">
             {benefits.map((benefit, index) => (
               <Card key={index} className="text-center hover:shadow-lg transition-shadow">
-                <CardContent className="p-8">
+                <CardContent className="p-6 md:p-8">
                   <div className="flex justify-center mb-6">{benefit.icon}</div>
-                  <h3 className="text-xl font-semibold text-green-800 mb-4">{benefit.title}</h3>
-                  <p className="text-gray-600">{benefit.description}</p>
+                  <h3 className="text-lg md:text-xl font-semibold text-green-800 mb-4">{benefit.title}</h3>
+                  <p className="text-gray-600 text-sm md:text-base">{benefit.description}</p>
                 </CardContent>
               </Card>
             ))}
@@ -216,16 +198,16 @@ export default function StockvelPage() {
       </section>
 
       {/* Packages Section */}
-      <section className="py-16 bg-gray-50">
+      <section className="py-12 md:py-16 bg-gray-50">
         <div className="container mx-auto px-4">
-          <div className="text-center mb-12">
-            <h2 className="text-3xl font-bold text-green-800 mb-4">Choose Your Perfect Package</h2>
+          <div className="text-center mb-8 md:mb-12">
+            <h2 className="text-2xl md:text-3xl font-bold text-green-800 mb-4">Choose Your Perfect Package</h2>
             <p className="text-gray-600 max-w-2xl mx-auto">
               All packages include fresh, locally-sourced produce with guaranteed quality and weekly delivery.
             </p>
           </div>
 
-          <div className="grid lg:grid-cols-2 xl:grid-cols-3 gap-8">
+          <div className="grid lg:grid-cols-2 xl:grid-cols-3 gap-6 md:gap-8">
             {packages.map((pkg) => (
               <Card
                 key={pkg.id}
@@ -245,20 +227,20 @@ export default function StockvelPage() {
                     alt={`${pkg.name} - Fresh groceries and produce`}
                     width={300}
                     height={200}
-                    className="rounded-lg mx-auto mb-4 object-cover h-48 w-full"
+                    className="rounded-lg mx-auto mb-4 object-cover h-40 md:h-48 w-full"
                   />
-                  <CardTitle className="text-2xl text-green-800">{pkg.name}</CardTitle>
-                  <p className="text-gray-600 text-sm">{pkg.description}</p>
+                  <CardTitle className="text-xl md:text-2xl text-green-800">{pkg.name}</CardTitle>
+                  <p className="text-gray-600 text-xs md:text-sm">{pkg.description}</p>
                 </CardHeader>
 
                 <CardContent className="pt-0">
                   <div className="text-center mb-6">
                     <div className="flex items-center justify-center space-x-2 mb-2">
-                      <span className="text-3xl font-bold text-green-600">{pkg.price}</span>
-                      <span className="text-lg text-gray-400 line-through">{pkg.originalPrice}</span>
+                      <span className="text-2xl md:text-3xl font-bold text-green-600">{pkg.price}</span>
+                      <span className="text-base md:text-lg text-gray-400 line-through">{pkg.originalPrice}</span>
                     </div>
                     <Badge className="bg-green-100 text-green-800 mb-2">Save {pkg.savings}</Badge>
-                    <div className="flex justify-center space-x-4 text-sm text-gray-600">
+                    <div className="flex justify-center space-x-4 text-xs md:text-sm text-gray-600">
                       <span>👥 {pkg.idealFor}</span>
                       <span>📅 {pkg.deliveryDay}</span>
                     </div>
@@ -266,7 +248,7 @@ export default function StockvelPage() {
 
                   <ul className="space-y-2 mb-6">
                     {pkg.features.map((feature, index) => (
-                      <li key={index} className="flex items-start space-x-2 text-sm">
+                      <li key={index} className="flex items-start space-x-2 text-xs md:text-sm">
                         <CheckCircle className="h-4 w-4 text-green-600 flex-shrink-0 mt-0.5" />
                         <span className="text-gray-700">{feature}</span>
                       </li>
@@ -302,65 +284,71 @@ export default function StockvelPage() {
       </section>
 
       {/* How It Works Section */}
-      <section className="py-16 bg-white">
+      <section className="py-12 md:py-16 bg-white">
         <div className="container mx-auto px-4">
-          <div className="text-center mb-12">
-            <h2 className="text-3xl font-bold text-green-800 mb-4">How Our Stockvel Works</h2>
+          <div className="text-center mb-8 md:mb-12">
+            <h2 className="text-2xl md:text-3xl font-bold text-green-800 mb-4">How Our Stockvel Works</h2>
             <p className="text-gray-600 max-w-2xl mx-auto">
               Simple steps to start saving money and eating better with your community.
             </p>
           </div>
 
-          <div className="grid md:grid-cols-4 gap-8">
+          <div className="grid sm:grid-cols-2 md:grid-cols-4 gap-6 md:gap-8">
             <div className="text-center">
-              <div className="bg-green-100 w-16 h-16 rounded-full flex items-center justify-center mx-auto mb-4">
-                <span className="text-2xl font-bold text-green-600">1</span>
+              <div className="bg-green-100 w-12 h-12 md:w-16 md:h-16 rounded-full flex items-center justify-center mx-auto mb-4">
+                <span className="text-lg md:text-2xl font-bold text-green-600">1</span>
               </div>
-              <h3 className="text-lg font-semibold text-green-800 mb-2">Choose Package</h3>
-              <p className="text-gray-600 text-sm">Select the perfect package for your family or community size.</p>
+              <h3 className="text-base md:text-lg font-semibold text-green-800 mb-2">Choose Package</h3>
+              <p className="text-gray-600 text-xs md:text-sm">
+                Select the perfect package for your family or community size.
+              </p>
             </div>
 
             <div className="text-center">
-              <div className="bg-orange-100 w-16 h-16 rounded-full flex items-center justify-center mx-auto mb-4">
-                <span className="text-2xl font-bold text-orange-600">2</span>
+              <div className="bg-orange-100 w-12 h-12 md:w-16 md:h-16 rounded-full flex items-center justify-center mx-auto mb-4">
+                <span className="text-lg md:text-2xl font-bold text-orange-600">2</span>
               </div>
-              <h3 className="text-lg font-semibold text-green-800 mb-2">Join or Create</h3>
-              <p className="text-gray-600 text-sm">Join an existing Stockvel or start a new one in your area.</p>
+              <h3 className="text-base md:text-lg font-semibold text-green-800 mb-2">Join or Create</h3>
+              <p className="text-gray-600 text-xs md:text-sm">
+                Join an existing Stockvel or start a new one in your area.
+              </p>
             </div>
 
             <div className="text-center">
-              <div className="bg-blue-100 w-16 h-16 rounded-full flex items-center justify-center mx-auto mb-4">
-                <span className="text-2xl font-bold text-blue-600">3</span>
+              <div className="bg-blue-100 w-12 h-12 md:w-16 md:h-16 rounded-full flex items-center justify-center mx-auto mb-4">
+                <span className="text-lg md:text-2xl font-bold text-blue-600">3</span>
               </div>
-              <h3 className="text-lg font-semibold text-green-800 mb-2">Weekly Orders</h3>
-              <p className="text-gray-600 text-sm">We source fresh produce from local farmers every week.</p>
+              <h3 className="text-base md:text-lg font-semibold text-green-800 mb-2">Weekly Orders</h3>
+              <p className="text-gray-600 text-xs md:text-sm">We source fresh produce from local farmers every week.</p>
             </div>
 
             <div className="text-center">
-              <div className="bg-red-100 w-16 h-16 rounded-full flex items-center justify-center mx-auto mb-4">
-                <span className="text-2xl font-bold text-red-600">4</span>
+              <div className="bg-red-100 w-12 h-12 md:w-16 md:h-16 rounded-full flex items-center justify-center mx-auto mb-4">
+                <span className="text-lg md:text-2xl font-bold text-red-600">4</span>
               </div>
-              <h3 className="text-lg font-semibold text-green-800 mb-2">Fresh Delivery</h3>
-              <p className="text-gray-600 text-sm">Receive your fresh groceries at your community pickup point.</p>
+              <h3 className="text-base md:text-lg font-semibold text-green-800 mb-2">Fresh Delivery</h3>
+              <p className="text-gray-600 text-xs md:text-sm">
+                Receive your fresh groceries at your community pickup point.
+              </p>
             </div>
           </div>
         </div>
       </section>
 
       {/* Testimonials Section */}
-      <section className="py-16 bg-gray-50">
+      <section className="py-12 md:py-16 bg-gray-50">
         <div className="container mx-auto px-4">
-          <div className="text-center mb-12">
-            <h2 className="text-3xl font-bold text-green-800 mb-4">What Our Community Says</h2>
+          <div className="text-center mb-8 md:mb-12">
+            <h2 className="text-2xl md:text-3xl font-bold text-green-800 mb-4">What Our Community Says</h2>
             <p className="text-gray-600 max-w-2xl mx-auto">
               Real stories from families and communities who are saving money and eating better.
             </p>
           </div>
 
-          <div className="grid md:grid-cols-3 gap-8">
+          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6 md:gap-8">
             {testimonials.map((testimonial, index) => (
               <Card key={index} className="hover:shadow-lg transition-shadow">
-                <CardContent className="p-6">
+                <CardContent className="p-4 md:p-6">
                   <div className="flex items-center mb-4">
                     <Image
                       src={testimonial.image || "/placeholder.svg"}
@@ -370,7 +358,7 @@ export default function StockvelPage() {
                       className="rounded-full mr-3"
                     />
                     <div>
-                      <h4 className="font-semibold text-green-800">{testimonial.name}</h4>
+                      <h4 className="font-semibold text-green-800 text-sm md:text-base">{testimonial.name}</h4>
                       <p className="text-xs text-gray-600">{testimonial.location}</p>
                       <Badge className="bg-orange-100 text-orange-800 text-xs mt-1">{testimonial.package}</Badge>
                     </div>
@@ -382,7 +370,7 @@ export default function StockvelPage() {
                     ))}
                   </div>
 
-                  <p className="text-gray-700 text-sm italic">"{testimonial.comment}"</p>
+                  <p className="text-gray-700 text-xs md:text-sm italic">"{testimonial.comment}"</p>
                 </CardContent>
               </Card>
             ))}
@@ -391,10 +379,10 @@ export default function StockvelPage() {
       </section>
 
       {/* CTA Section */}
-      <section className="py-16 bg-gradient-to-r from-orange-400 to-orange-500 text-white">
+      <section className="py-12 md:py-16 bg-gradient-to-r from-orange-400 to-orange-500 text-white">
         <div className="container mx-auto px-4 text-center">
-          <h2 className="text-3xl font-bold mb-4">Ready to Start Saving, MBUMBA?</h2>
-          <p className="text-xl text-orange-100 mb-8 max-w-2xl mx-auto">
+          <h2 className="text-2xl md:text-3xl font-bold mb-4">Ready to Start Saving, MBUMBA?</h2>
+          <p className="text-lg md:text-xl text-orange-100 mb-8 max-w-2xl mx-auto">
             Join thousands of South African families who are eating better and spending less. Start your Stockvel
             journey today!
           </p>
@@ -404,7 +392,10 @@ export default function StockvelPage() {
               target="_blank"
               rel="noopener noreferrer"
             >
-              <Button size="lg" className="bg-white text-orange-600 hover:bg-gray-100 px-8 py-3">
+              <Button
+                size="lg"
+                className="bg-white text-orange-600 hover:bg-gray-100 px-6 md:px-8 py-3 w-full sm:w-auto"
+              >
                 <MessageCircle className="mr-2 h-5 w-5" />
                 Start on WhatsApp
               </Button>
@@ -413,7 +404,7 @@ export default function StockvelPage() {
               <Button
                 size="lg"
                 variant="outline"
-                className="border-white text-white hover:bg-white hover:text-orange-600 px-8 py-3 bg-transparent"
+                className="border-white text-white hover:bg-white hover:text-orange-600 px-6 md:px-8 py-3 bg-transparent w-full sm:w-auto"
               >
                 <Phone className="mr-2 h-5 w-5" />
                 Call Us: 063 984 4453
@@ -424,29 +415,29 @@ export default function StockvelPage() {
       </section>
 
       {/* Contact Section */}
-      <section className="py-16 bg-green-800 text-white">
+      <section className="py-12 md:py-16 bg-green-800 text-white">
         <div className="container mx-auto px-4">
-          <div className="text-center mb-12">
-            <h2 className="text-3xl font-bold mb-4">Need Help Choosing?</h2>
+          <div className="text-center mb-8 md:mb-12">
+            <h2 className="text-2xl md:text-3xl font-bold mb-4">Need Help Choosing?</h2>
             <p className="text-green-200 max-w-2xl mx-auto">
               Our team is here to help you find the perfect package for your family or community.
             </p>
           </div>
 
-          <div className="grid md:grid-cols-3 gap-8 text-center">
+          <div className="grid md:grid-cols-3 gap-6 md:gap-8 text-center">
             <div>
-              <Phone className="h-8 w-8 text-orange-300 mx-auto mb-4" />
-              <h3 className="text-xl font-semibold mb-2">Call Us</h3>
-              <p className="text-green-200 mb-4">Speak directly with our team</p>
+              <Phone className="h-6 w-6 md:h-8 md:w-8 text-orange-300 mx-auto mb-4" />
+              <h3 className="text-lg md:text-xl font-semibold mb-2">Call Us</h3>
+              <p className="text-green-200 mb-4 text-sm md:text-base">Speak directly with our team</p>
               <a href="tel:0639844453" className="text-orange-300 hover:text-orange-200 font-medium">
                 063 984 4453
               </a>
             </div>
 
             <div>
-              <MessageCircle className="h-8 w-8 text-orange-300 mx-auto mb-4" />
-              <h3 className="text-xl font-semibold mb-2">WhatsApp</h3>
-              <p className="text-green-200 mb-4">Quick and easy messaging</p>
+              <MessageCircle className="h-6 w-6 md:h-8 md:w-8 text-orange-300 mx-auto mb-4" />
+              <h3 className="text-lg md:text-xl font-semibold mb-2">WhatsApp</h3>
+              <p className="text-green-200 mb-4 text-sm md:text-base">Quick and easy messaging</p>
               <a
                 href="https://wa.me/27639844453"
                 target="_blank"
@@ -458,9 +449,9 @@ export default function StockvelPage() {
             </div>
 
             <div>
-              <Mail className="h-8 w-8 text-orange-300 mx-auto mb-4" />
-              <h3 className="text-xl font-semibold mb-2">Email</h3>
-              <p className="text-green-200 mb-4">Send us a detailed message</p>
+              <Mail className="h-6 w-6 md:h-8 md:w-8 text-orange-300 mx-auto mb-4" />
+              <h3 className="text-lg md:text-xl font-semibold mb-2">Email</h3>
+              <p className="text-green-200 mb-4 text-sm md:text-base">Send us a detailed message</p>
               <a href="mailto:info@thubatlala.com" className="text-orange-300 hover:text-orange-200 font-medium">
                 info@thubatlala.com
               </a>
@@ -470,22 +461,22 @@ export default function StockvelPage() {
       </section>
 
       {/* Footer */}
-      <footer className="bg-gray-900 text-white py-12">
+      <footer className="bg-gray-900 text-white py-8 md:py-12">
         <div className="container mx-auto px-4">
-          <div className="grid md:grid-cols-4 gap-8">
+          <div className="grid sm:grid-cols-2 md:grid-cols-4 gap-6 md:gap-8">
             <div>
               <div className="flex items-center space-x-3 mb-4">
                 <Image src="/logo.png" alt="Thuba Tlala Logo" width={40} height={40} />
-                <span className="text-xl font-bold">THUBA TLALA</span>
+                <span className="text-lg md:text-xl font-bold">THUBA TLALA</span>
               </div>
-              <p className="text-gray-400">
+              <p className="text-gray-400 text-sm md:text-base">
                 Connecting South African communities with fresh, affordable produce through collective buying power.
               </p>
             </div>
 
             <div>
               <h4 className="font-semibold mb-4">Quick Links</h4>
-              <ul className="space-y-2 text-gray-400">
+              <ul className="space-y-2 text-gray-400 text-sm md:text-base">
                 <li>
                   <Link href="/" className="hover:text-white">
                     Home
@@ -511,7 +502,7 @@ export default function StockvelPage() {
 
             <div>
               <h4 className="font-semibold mb-4">Categories</h4>
-              <ul className="space-y-2 text-gray-400">
+              <ul className="space-y-2 text-gray-400 text-sm md:text-base">
                 <li>
                   <Link href="#" className="hover:text-white">
                     Fresh Meat
@@ -537,7 +528,7 @@ export default function StockvelPage() {
 
             <div>
               <h4 className="font-semibold mb-4">Contact Info</h4>
-              <ul className="space-y-2 text-gray-400">
+              <ul className="space-y-2 text-gray-400 text-sm md:text-base">
                 <li>📞 063 984 4453</li>
                 <li>📧 info@thubatlala.com</li>
                 <li>📍 Sandton, Johannesburg</li>
@@ -545,7 +536,7 @@ export default function StockvelPage() {
             </div>
           </div>
 
-          <div className="border-t border-gray-800 mt-8 pt-8 text-center text-gray-400">
+          <div className="border-t border-gray-800 mt-6 md:mt-8 pt-6 md:pt-8 text-center text-gray-400 text-sm md:text-base">
             <p>
               &copy; 2024 Thuba Tlala. All rights reserved. Supporting local communities through fresh, affordable food.
             </p>
